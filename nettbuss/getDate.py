@@ -15,11 +15,11 @@ def getTimetableByDate(date):
     return timetable['data'][0]
 
 def getPrices(key, type):
-        url = 'https://www.nettbuss.se/api/v2/DepartureSearchResult/GetDepartureInformation?tripKey='+urlencode(key)+'&toTrip=true&ticketTypeId='+type+'&editing=&allowOnlyOneBooking=false'
-        headers = {'Content-type':'application/json'}
-        r = s.get(url, headers=headers)
-        tripdetails = json.loads(r.content)
-        return tripdetails
+    url = 'https://www.nettbuss.se/api/v2/DepartureSearchResult/GetDepartureInformation?tripKey='+urlencode(key)+'&toTrip=true&ticketTypeId='+type+'&editing=&allowOnlyOneBooking=false'
+    headers = {'Content-type':'application/json'}
+    r = s.get(url, headers=headers)
+    tripdetails = json.loads(r.content)
+    return tripdetails
 
 def addPrices(timetable):
     for id, trip in enumerate(timetable['trips']):
